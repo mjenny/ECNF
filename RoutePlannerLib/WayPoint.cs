@@ -24,9 +24,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public int Distance(WayPoint target) {
 
-            double tmp1 = Math.Sin(Latitude) * Math.Sin(target.Latitude);
-            double tmp2 = Math.Cos(Latitude) * Math.Cos(target.Latitude);
-            double tmp3 = Math.Cos(Longitude - target.Longitude);
+            double radianToDegree = (Math.PI / 180);
+            double tmp1 = Math.Sin(radianToDegree * Latitude) * Math.Sin(radianToDegree * target.Latitude);
+            double tmp2 = Math.Cos(radianToDegree * Latitude) * Math.Cos(radianToDegree * target.Latitude);
+            double tmp3 = Math.Cos(radianToDegree * (Longitude - target.Longitude));
             double tmp4 = tmp2 * tmp3;
 
             double d = 0;
