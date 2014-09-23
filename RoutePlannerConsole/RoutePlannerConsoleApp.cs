@@ -28,7 +28,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             Console.WriteLine("Distance: {0}" , wpBern.Distance(wpTripolis));
 
             var cities = new Cities();
-            cities.ReadCities("citiesTestDataLab2.txt");
+            cities.ReadCities("data\\citiesTestDataLab2.txt");
             Console.WriteLine();
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
