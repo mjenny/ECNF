@@ -22,7 +22,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             Longitude = _longitude;
         }
 
-        public int Distance(WayPoint target) {
+        public double Distance(WayPoint target) {
 
             double radianToDegree = (Math.PI / 180);
             double tmp1 = Math.Sin(radianToDegree * Latitude) * Math.Sin(radianToDegree * target.Latitude);
@@ -32,7 +32,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
             double d = 0;
             d = RADIUS * Math.Acos(tmp1 + tmp4);
-            return (int)d;
+            return d;
         }
 
         public override string ToString()

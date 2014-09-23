@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                     while ((line = sr.ReadLine()) != null)
                     {
                         var data = line.Split('\t');
-                        _cities.Add(new City(data[0], data[1], Convert.ToInt32(data[2]), Convert.ToDouble(data[3]), Convert.ToDouble(data[4])));
+                        _cities.Add(new City(data[0], data[1], Int32.Parse(data[2]), Double.Parse(data[3], CultureInfo.InvariantCulture), Double.Parse(data[4], CultureInfo.InvariantCulture)));
                         ++readCounter;
                     }
                 }
@@ -75,7 +76,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns>City with defined index</returns>
         public City this[int index]
         {
-            get { return (index < Count) ? _cities[index] : null; }
+            get { return (index < _cities.Count) ? _cities[index] : null; }
         }
 
     }
