@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
-    class City
+    public class City
     {
-        public string name { get; private set; }
-        public string country { get; private set; }
-        public int population { get; private set; }
-        public WayPoint location { get; private set; }
+        public string Name { get; private set; }
+        public string Country { get; private set; }
+        public int Population { get; private set; }
+        public WayPoint Location { get; private set; }
 
         /// <summary>
         /// 
@@ -23,10 +23,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <param name="Longitude">Longitude of the city</param>
         public City(string Name, string Country, int Population, double Latitude, double Longitude)
         {
-            this.name = Name;
-            this.country = Country;
-            this.population = Population;
-            location = new WayPoint(Name, Latitude, Longitude);
+            this.Name = Name;
+            this.Country = Country;
+            this.Population = Population;
+            Location = new WayPoint(Name, Latitude, Longitude);
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
-    class Cities
+    public class Cities
     {
         List<City> _cities = new List<City>();
         public int Count { get { return _cities.Count; } }
@@ -18,7 +18,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        int ReadCities(string filename)
+        public int ReadCities(string filename)
         {
             var readCounter = 0;
             try
@@ -56,9 +56,9 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             double currentDistance = 0;
             for(int i = 0; i < _cities.Count; i++)
             {
-                if (_cities[i].location.Latitude != location.Latitude || _cities[i].location.Longitude != location.Longitude)
+                if (_cities[i].Location.Latitude != location.Latitude || _cities[i].Location.Longitude != location.Longitude)
                 {
-                    currentDistance = location.Distance(_cities[i].location);
+                    currentDistance = location.Distance(_cities[i].Location);
                     if (currentDistance <= distance)
                     {
                         neighbours.Add(currentDistance, _cities[i]);
