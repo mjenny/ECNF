@@ -26,7 +26,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
             double tmp1 = Math.Sin(Latitude) * Math.Sin(target.Latitude);
             double tmp2 = Math.Cos(Latitude) * Math.Cos(target.Latitude);
-            double tmp3 = Math.Cos(Longitude - target.Longitude);
+            double tmp3 = Math.Cos(target.Longitude - Longitude);
             double tmp4 = tmp2 * tmp3;
 
             double d = 0;
