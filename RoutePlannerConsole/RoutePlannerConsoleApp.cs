@@ -19,6 +19,8 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             Console.WriteLine("{0}: {1}/{2}", wayPoint.Name, wayPoint.Latitude, wayPoint.Longitude);
             Console.WriteLine(wayPoint.ToString());
 
+            var cities = new Cities();
+            cities.ReadCities("citiesTestDataLab2.txt");
             Console.WriteLine();
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
