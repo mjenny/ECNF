@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,18 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             Longitude = _longitude;
         }
 
+        public int Distance(WayPoint target) {
 
+            return 0;
+        }
+
+        public override string ToString()
+        {
+            string s = "WayPoint: ";
+            if (Name != null)
+                s += Name + " ";
+            s += Latitude.ToString("F") + "/" + Longitude.ToString("F");
+            return s; 
+        }
     }
 }
