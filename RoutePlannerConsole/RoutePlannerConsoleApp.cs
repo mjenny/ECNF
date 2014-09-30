@@ -27,8 +27,8 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
 
             Console.WriteLine("Distance: {0}" , wpBern.Distance(wpTripolis));
 
-            var cities = new Cities();
-            cities.ReadCities("data\\citiesTestDataLab2.txt");
+            var citiesLab2 = new Cities();
+            citiesLab2.ReadCities("data\\citiesTestDataLab2.txt");
 
             var bern = new WayPoint("Bern", 46.95, 7.44);
             var tripolis = new WayPoint("Tripolis", 32.876174, 13.187507);
@@ -36,19 +36,30 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             double actual = bern.Distance(tripolis);
             
             Console.WriteLine();
-            var findCity = cities.FindCity("Bern");
+            var findCity = citiesLab2.FindCity("Bern");
 
             if (findCity != null)
                 Console.WriteLine("City {0} was found.", findCity.Name);
             else
                 Console.WriteLine("City not found.");
 
-            findCity = cities.FindCity("Dilli");
+            findCity = citiesLab2.FindCity("Dilli");
 
             if (findCity != null)
                 Console.WriteLine("City {0} was found.", findCity.Name);
             else
                 Console.WriteLine("City not found.");
+
+            Console.WriteLine();
+            Console.WriteLine("Test Routes");
+            var citiesLab3 = new Cities();
+            citiesLab3.ReadCities("data\\citiesTestDataLab3.txt");
+            var reqWatcher = new RouteRequestWatcher();
+
+            var routes = new Routes(citiesLab3);
+            routes.RouteRequestEvent += reqWatcher.LogRouteRequests;
+            routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);
+            routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);
 
             Console.WriteLine();
             Console.WriteLine("Press any key to continue...");

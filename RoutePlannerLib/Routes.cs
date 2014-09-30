@@ -69,7 +69,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         {
 			//TODO
             if (RouteRequestEvent != null)
-                RouteRequestEvent(this, new RouteRequestEventArgs(cities.FindCity(fromCity), cities.FindCity(toCity), mode));
+                RouteRequestEvent(this, new RouteRequestEventArgs(fromCity, toCity, mode));
             return new List<Link>();
         }
 
@@ -80,10 +80,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public City FromCity;
         public City ToCity;
         public TransportModes Mode;
-        public RouteRequestEventArgs(City fromCity, City toCity, TransportModes mode)
+        public RouteRequestEventArgs(string fromCity, string toCity, TransportModes mode)
         {
-            FromCity = fromCity;
-            ToCity = toCity;
+            FromCity = new City(fromCity, "", 0, 0.0, 0.0);
+            ToCity = new City(toCity, "", 0, 0.0, 0.0);
             Mode = mode;
         }
     }
