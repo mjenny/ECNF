@@ -73,5 +73,16 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             get { return (index < _cities.Count) ? _cities[index] : null; }
         }
 
+        public City FindCity(string cityName)
+        {
+            //return _cities.Find(c => c.Name.Equals(cityName));
+            return _cities.Find(delegate(City c)
+            {
+                if (c.Name.ToLower().Equals(cityName.ToLower()))
+                    return true;
+                return false;
+            });
+        }
+
     }
 }

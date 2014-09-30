@@ -34,6 +34,21 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             var tripolis = new WayPoint("Tripolis", 32.876174, 13.187507);
             const double expected = 1638.74410788167;
             double actual = bern.Distance(tripolis);
+            
+            Console.WriteLine();
+            var findCity = cities.FindCity("Bern");
+
+            if (findCity != null)
+                Console.WriteLine("City {0} was found.", findCity.Name);
+            else
+                Console.WriteLine("City not found.");
+
+            findCity = cities.FindCity("Dilli");
+
+            if (findCity != null)
+                Console.WriteLine("City {0} was found.", findCity.Name);
+            else
+                Console.WriteLine("City not found.");
 
             Console.WriteLine();
             Console.WriteLine("Press any key to continue...");
