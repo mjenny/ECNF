@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
     public class Cities
     {
-        List<City> _cities = new List<City>();
+        readonly List<City> _cities = new List<City>();
         public int Count { get { return _cities.Count; } }
 
         /// <summary>
@@ -54,20 +52,15 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public List<City> FindNeighbours(WayPoint location, double distance)
         {
             var neighbours = new SortedDictionary<double, City>();
-            double currentDistance = 0;
-            for(int i = 0; i < _cities.Count; i++)
+            foreach (var c in _cities)
             {
-                // Unit test want's the city to be in the list too!!
-                //if (_cities[i].Location.Latitude != location.Latitude && _cities[i].Location.Longitude != location.Longitude)
-                //{
-                    currentDistance = location.Distance(_cities[i].Location);
-                    if (currentDistance <= distance)
-                    {
-                        neighbours.Add(currentDistance, _cities[i]);
-                    }
-                //}
+                var currentDistance = location.Distance(c.Location);
+                if (currentDistance <= distance)
+                {
+                    neighbours.Add(currentDistance, c);
+                }
             }
-            return neighbours.Values.ToList<City>();
+            return neighbours.Values.ToList();
         }
 
         /// <summary>

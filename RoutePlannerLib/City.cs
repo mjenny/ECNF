@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
@@ -16,17 +12,17 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="Name">Name of the city</param>
-        /// <param name="Country">Country of the city</param>
-        /// <param name="Population">Population of the city</param>
-        /// <param name="Latitude">Latitude of the city</param>
-        /// <param name="Longitude">Longitude of the city</param>
-        public City(string Name, string Country, int Population, double Latitude, double Longitude)
+        /// <param name="name">name of the city</param>
+        /// <param name="country">Country of the city</param>
+        /// <param name="population">Population of the city</param>
+        /// <param name="latitude">Latitude of the city</param>
+        /// <param name="longitude">Longitude of the city</param>
+        public City(string name, string country, int population, double latitude, double longitude)
         {
-            this.Name = Name;
-            this.Country = Country;
-            this.Population = Population;
-            Location = new WayPoint(Name, Latitude, Longitude);
+            Name = name;
+            Country = country;
+            Population = population;
+            Location = new WayPoint(name, latitude, longitude);
         }
     }
 }
