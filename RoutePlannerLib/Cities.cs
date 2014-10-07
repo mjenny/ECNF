@@ -73,9 +73,13 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             get { return (index < _cities.Count) ? _cities[index] : null; }
         }
 
+        /// <summary>
+        /// Find a city object with specified name
+        /// </summary>
+        /// <param name="cityName">Name of the city to find</param>
+        /// <returns></returns>
         public City FindCity(string cityName)
         {
-            //return _cities.Find(c => c.Name.Equals(cityName));
             return _cities.Find(delegate(City c)
             {
                 if (c.Name.ToLower().Equals(cityName.ToLower()))
@@ -84,5 +88,33 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             });
         }
 
+        #region Lab04: FindShortestPath helper function
+        /// <summary>
+        /// Find all cities between 2 cities 
+        /// </summary>
+        /// <param name="from">source city</param>
+        /// <param name="to">target city</param>
+        /// <returns>list of cities</returns>
+        public List<City> FindCitiesBetween(City from, City to)
+        {
+            var foundCities = new List<City>();
+            if (from == null || to == null)
+                return foundCities;
+
+            foundCities.Add(from);
+
+            var minLat = Math.Min(from.Location.Latitude, to.Location.Latitude);
+            var maxLat = Math.Max(from.Location.Latitude, to.Location.Latitude);
+            var minLon = Math.Min(from.Location.Longitude, to.Location.Longitude);
+            var maxLon = Math.Max(from.Location.Longitude, to.Location.Longitude);
+
+            foundCities.AddRange(_cities.FindAll(c =>
+                c.Location.Latitude > minLat && c.Location.Latitude < maxLat
+                        && c.Location.Longitude > minLon && c.Location.Longitude < maxLon));
+
+            foundCities.Add(to);
+            return foundCities;
+        }
+        #endregion
     }
 }
