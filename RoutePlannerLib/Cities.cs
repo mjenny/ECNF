@@ -81,7 +81,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         {
             return _cities.Find(delegate(City c)
             {
-                if (c.Name.ToLower().Equals(cityName.ToLower()))
+                if (c.Name.ToLower().Equals(cityName.ToLower(), StringComparison.InvariantCultureIgnoreCase))
                     return true;
                 return false;
             });

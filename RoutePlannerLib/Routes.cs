@@ -87,7 +87,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public List<Link> FindShortestRouteBetween(string fromCity, string toCity, TransportModes mode)
         {
             if (RouteRequestEvent != null)
-                RouteRequestEvent(this, new RouteRequestEventArgs(fromCity, toCity, mode));
+                RouteRequestEvent(this, new RouteRequestEventArgs(new City(fromCity, "", 0, 0.0, 0.0), new City(toCity, "", 0, 0.0, 0.0), mode));
             var citiesBetween = FindCitiesBetween(fromCity, toCity);
             if (citiesBetween == null || citiesBetween.Count < 1 || routes == null || routes.Count < 1)
                 return null;
@@ -214,14 +214,19 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
     public class RouteRequestEventArgs : EventArgs
     {
-        public City FromCity;
-        public City ToCity;
-        public TransportModes Mode;
-        public RouteRequestEventArgs(string fromCity, string toCity, TransportModes mode)
+        public City FromCity { get { return fromCity; } private set; }
+        public City ToCity { get { return toCity; } private set; }
+        public TransportModes Mode { get { return mode; } private set; }
+
+        private City fromCity;
+        private City toCity;
+        private TransportModes mode;
+        
+        public RouteRequestEventArgs(City fromCity, City toCity, TransportModes mode)
         {
-            FromCity = new City(fromCity, "", 0, 0.0, 0.0);
-            ToCity = new City(toCity, "", 0, 0.0, 0.0);
-            Mode = mode;
+            this.fromCity = fromCity;
+            this.toCity = toCity;
+            this.mode = mode;
         }
     }
 }
