@@ -224,19 +224,15 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
     public class RouteRequestEventArgs : EventArgs
     {
-        public City FromCity { get { return fromCity; } private set; }
-        public City ToCity { get { return toCity; } private set; }
-        public TransportModes Mode { get { return mode; } private set; }
-
-        private City fromCity;
-        private City toCity;
-        private TransportModes mode;
+        public City FromCity { get; private set; }
+        public City ToCity { get; private set; }
+        public TransportModes Mode { get; private set; }
         
         public RouteRequestEventArgs(City fromCity, City toCity, TransportModes mode)
         {
-            this.fromCity = fromCity;
-            this.toCity = toCity;
-            this.mode = mode;
+            this.FromCity = fromCity;
+            this.ToCity = toCity;
+            this.Mode = mode;
         }
     }
 }

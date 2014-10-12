@@ -23,19 +23,15 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             var count = 0;
             using (TextReader reader = new StreamReader(filename))
             {
-                using (var sr = new StreamReader(filename))
-                {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        var data = line.Split('\t');
-                        _cities.Add(new City(data[0], data[1], Int32.Parse(data[2]), Double.Parse(data[3], CultureInfo.InvariantCulture), Double.Parse(data[4], CultureInfo.InvariantCulture)));
-                        ++readCounter;
-                    }
+                foreach (var item in reader.GetSplittedLines('\t'))
+	            {
+                    _cities.Add(new City(item[0].Trim(),
+                            item[1].Trim(),
+                            Int32.Parse(item[2]), 
+                            Double.Parse(item[3]),
+                            Double.Parse(item[4])));
+                    ++count;
                 }
-                return readCounter;
-            }
-
             }
             return count;
         }
