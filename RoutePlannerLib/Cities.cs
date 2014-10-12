@@ -23,15 +23,18 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             var count = 0;
             using (TextReader reader = new StreamReader(filename))
             {
-                foreach (var item in reader.GetSplittedLines('\t'))
+                using (var sr = new StreamReader(filename))
                 {
-                    _cities.Add(new City(item[0].Trim(),
-                        item[1].Trim(),
-                        int.Parse(item[2]),
-                        double.Parse(item[3]),
-                        double.Parse(item[4])));
-                    count++;
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        var data = line.Split('\t');
+                        _cities.Add(new City(data[0], data[1], Int32.Parse(data[2]), Double.Parse(data[3], CultureInfo.InvariantCulture), Double.Parse(data[4], CultureInfo.InvariantCulture)));
+                        ++readCounter;
+                    }
                 }
+                return readCounter;
+            }
 
             }
             return count;
@@ -77,7 +80,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         {
             return _cities.Find(delegate(City c)
             {
-                if (c.Name.ToLower().Equals(cityName.ToLower()))
+                if (c.Name.ToLower().Equals(cityName.ToLower(), StringComparison.InvariantCultureIgnoreCase))
                     return true;
                 return false;
             });

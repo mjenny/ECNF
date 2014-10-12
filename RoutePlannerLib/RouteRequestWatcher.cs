@@ -20,7 +20,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             if (_requests.ContainsKey(e.ToCity.Name))
                 _requests[e.ToCity.Name] += 1;
             else
-                _requests.Add(e.ToCity.Name,1);
+                _requests[e.ToCity.Name] = 1;
             Console.WriteLine("ToCity: {0} has been requested {1} times", e.ToCity.Name, _requests[e.ToCity.Name]);
         }
 
