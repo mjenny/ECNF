@@ -32,7 +32,6 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
 
             var bern = new WayPoint("Bern", 46.95, 7.44);
             var tripolis = new WayPoint("Tripolis", 32.876174, 13.187507);
-            const double expected = 1638.74410788167;
             double actual = bern.Distance(tripolis);
             
             Console.WriteLine();

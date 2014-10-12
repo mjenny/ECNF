@@ -2,6 +2,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
@@ -38,26 +39,25 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns>number of read route</returns>
         public int ReadRoutes(string filename)
         {
+            var count = 0;
             using (TextReader reader = new StreamReader(filename))
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                foreach (var item in reader.GetSplittedLines('\t'))
                 {
-                    var linkAsString = line.Split('\t');
-
-                    City city1 = cities.FindCity(linkAsString[0]);
-                    City city2 = cities.FindCity(linkAsString[1]);
+                    City city1 = cities.FindCity(item[0]);
+                    City city2 = cities.FindCity(item[1]);
 
                     // only add links, where the cities are found 
                     if ((city1 != null) && (city2 != null))
                     {
                         routes.Add(new Link(city1, city2, city1.Location.Distance(city2.Location),
                                                    TransportModes.Rail));
+                        count++;
                     }
                 }
             }
 
-            return Count;
+            return count;
 
         }
 
@@ -74,14 +74,24 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             return cities.FindCitiesBetween(fc, tc);
         }
 
-        public Link FindLink(City u, City n, TransportModes tm)
+        public Link FindLink(City c1, City c2, TransportModes mode)
         {
-            return new Link(null, null, 0.0);
+            return routes.Find(delegate(Link lnk)
+            {
+                return (lnk.TransportMode == mode && ((lnk.FromCity == c1 && lnk.ToCity == c2) || (lnk.FromCity == c2 && lnk.ToCity == c1)));
+            });
         }
 
-        public List<Link> FindPath(List<City> cor, TransportModes tr)
+        public List<Link> FindPath(List<City> citiesOnRoute, TransportModes mode)
         {
-            return new List<Link>();
+            var ret = new List<Link>();
+            for (int i = 0; i < citiesOnRoute.Count - 1; i++)
+            {
+                var city1 = citiesOnRoute[i];
+                var city2 = citiesOnRoute[i+1];
+                ret.Add(new Link(city1, city2, city1.Location.Distance(city2.Location),mode));
+            }
+            return ret;
         }
 
         public List<Link> FindShortestRouteBetween(string fromCity, string toCity, TransportModes mode)

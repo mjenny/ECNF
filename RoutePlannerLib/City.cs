@@ -34,5 +34,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             }
             return false;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

@@ -43,5 +43,35 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             s += Latitude.ToString("F") + "/" + Longitude.ToString("F");
             return s; 
         }
+
+
+        /// <summary>
+        /// Summiert zwei Waypoints
+        /// Die Operatoren sollen so funktionieren, 
+        /// dass die Koordinaten addiert bzw. subtrahiert werden
+        /// und der Name des ersten (linken) WayPoints erhalten bleibt. 
+        /// </summary>
+        /// <param name="lhs"></param>
+        /// <param name="rhs"></param>
+        /// <returns>new WayPoint</returns>
+        public static WayPoint operator+ (WayPoint lhs, WayPoint rhs)
+        {
+            return new WayPoint(lhs.Name, lhs.Latitude + rhs.Latitude, lhs.Longitude + rhs.Longitude);
+        }
+
+        /// <summary>
+        /// Subtrahiert zwei Waypoints
+        /// Die Operatoren sollen so funktionieren, 
+        /// dass die Koordinaten addiert bzw. subtrahiert werden
+        /// und der Name des ersten (linken) WayPoints erhalten bleibt. 
+        /// </summary>
+        /// <param name="lhs"></param>
+        /// <param name="rhs"></param>
+        /// <returns>new WayPoint</returns>
+        public static WayPoint operator- (WayPoint lhs, WayPoint rhs)
+        {
+            return new WayPoint(lhs.Name, lhs.Latitude - rhs.Latitude, lhs.Longitude - rhs.Longitude);
+        }
+    
     }
 }

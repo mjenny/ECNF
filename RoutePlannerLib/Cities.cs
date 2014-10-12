@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
@@ -19,27 +20,21 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public int ReadCities(string filename)
         {
-            var readCounter = 0;
-            try
+            var count = 0;
+            using (TextReader reader = new StreamReader(filename))
             {
-                using (var sr = new StreamReader(filename))
+                foreach (var item in reader.GetSplittedLines('\t'))
                 {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        var data = line.Split('\t');
-                        _cities.Add(new City(data[0], data[1], Int32.Parse(data[2]), Double.Parse(data[3], CultureInfo.InvariantCulture), Double.Parse(data[4], CultureInfo.InvariantCulture)));
-                        ++readCounter;
-                    }
+                    _cities.Add(new City(item[0].Trim(),
+                        item[1].Trim(),
+                        int.Parse(item[2]),
+                        double.Parse(item[3]),
+                        double.Parse(item[4])));
+                    count++;
                 }
-                return readCounter;
+
             }
-            catch (Exception e)
-            {
-                Console.WriteLine("The file \"" + filename + "\" could not be read!");
-                Console.WriteLine(e.Message);
-                return -1;
-            }
+            return count;
         }
 
         /// <summary>
