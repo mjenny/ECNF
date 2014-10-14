@@ -26,7 +26,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         static public IRoutes Create(Cities cities, string algorithmClassName)
         {
-            Assembly asm = Assembly.LoadFrom(algorithmClassName);
+            Assembly asm = Assembly.GetExecutingAssembly();
             Type t = GetTypeFromAssembly(algorithmClassName, asm);
             return (t == null) ? null : Activator.CreateInstance(t, cities) as IRoutes;
         }

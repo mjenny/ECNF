@@ -25,7 +25,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Algorithm1")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Routes")]
         public string RouteAlgorithm {
             get {
                 return ((string)(this["RouteAlgorithm"]));
