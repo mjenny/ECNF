@@ -33,7 +33,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public static Type GetTypeFromAssembly(String algorithmClassName, Assembly a)
         {
-            foreach (var t in a.GetTypes)
+            foreach (var t in a.GetTypes())
             {
                 if(t.FullName.Equals(algorithmClassName) && t.IsClass)
                     return t;
