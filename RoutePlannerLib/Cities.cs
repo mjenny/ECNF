@@ -20,20 +20,25 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public int ReadCities(string filename)
         {
-            var count = 0;
-            using (TextReader reader = new StreamReader(filename))
+            var readCounter = 0;
+            try
             {
-                foreach (var item in reader.GetSplittedLines('\t'))
-	            {
-                    _cities.Add(new City(item[0].Trim(),
-                            item[1].Trim(),
-                            Int32.Parse(item[2]), 
-                            Double.Parse(item[3]),
-                            Double.Parse(item[4])));
-                    ++count;
+                using (TextReader tr = new StreamReader(filename))
+                {
+                    foreach (var cs in tr.GetSplittedLines('\t'))
+                    {
+                        _cities.Add(new City(cs[0].Trim(), cs[1].Trim(), int.Parse(cs[2]), double.Parse(cs[3], CultureInfo.InvariantCulture), Double.Parse(cs[4], CultureInfo.InvariantCulture)));
+                        ++readCounter;
+                    }
                 }
+                return readCounter;
             }
-            return count;
+            catch (Exception e)
+            {
+                Console.WriteLine("The file \"" + filename + "\" could not be read!");
+                Console.WriteLine(e.Message);
+                return -1;
+            }
         }
 
         /// <summary>
