@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Cities.cs" />
     <Compile Include="City.cs" />
+    <Compile Include="IRoutes.cs" />
     <Compile Include="Link.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RouteRequestWatcher.cs" />
