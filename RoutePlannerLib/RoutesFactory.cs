@@ -15,7 +15,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         static public IRoutes Create(Cities cities)
         {
-            return Create(cities, Settings.Default.RouteAlgorith);
+            return Create(cities, Properties.Settings.Default.RouteAlgorith);
         }
 
         /// <summary>
