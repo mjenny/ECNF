@@ -9,6 +9,9 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public int Population { get; private set; }
         public WayPoint Location { get; private set; }
 
+        //Default Constructor for serialization
+        public City(){}
+
         /// <summary>
         /// 
         /// </summary>
