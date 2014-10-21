@@ -25,11 +25,22 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             {
                 using (TextReader tr = new StreamReader(filename))
                 {
-                    foreach (var cs in tr.GetSplittedLines('\t'))
-                    {
-                        _cities.Add(new City(cs[0].Trim(), cs[1].Trim(), int.Parse(cs[2]), double.Parse(cs[3], CultureInfo.InvariantCulture), Double.Parse(cs[4], CultureInfo.InvariantCulture)));
-                        ++readCounter;
-                    }
+
+                    tr.GetSplittedLines('\t').ToList().ForEach(c => {
+                        _cities.Add(new City(c[0].Trim(),
+                                             c[1].Trim(),
+                                             int.Parse(c[2]),
+                                             double.Parse(c[3], CultureInfo.InvariantCulture),
+                                             Double.Parse(c[4], CultureInfo.InvariantCulture)));
+                        readCounter++;
+                    
+                    });
+
+                    //foreach (var cs in tr.GetSplittedLines('\t'))
+                    //{
+                    //    _cities.Add(new City(cs[0].Trim(), cs[1].Trim(), int.Parse(cs[2]), double.Parse(cs[3], CultureInfo.InvariantCulture), Double.Parse(cs[4], CultureInfo.InvariantCulture)));
+                    //    ++readCounter;
+                    //}
                 }
                 return readCounter;
             }
