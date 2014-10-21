@@ -79,12 +79,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public City FindCity(string cityName)
         {
-            return _cities.Find(delegate(City c)
-            {
-                if (c.Name.ToLower().Equals(cityName.ToLower(), StringComparison.InvariantCultureIgnoreCase))
-                    return true;
-                return false;
-            });
+            return _cities.Find(c => c.Name.ToLower().Equals(cityName.ToLower(), StringComparison.InvariantCultureIgnoreCase));
         }
 
         #region Lab04: FindShortestPath helper function
