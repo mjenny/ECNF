@@ -50,16 +50,21 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public List<City> FindNeighbours(WayPoint location, double distance)
         {
-            var neighbours = new SortedDictionary<double, City>();
-            foreach (var c in _cities)
-            {
-                var currentDistance = location.Distance(c.Location);
-                if (currentDistance <= distance)
-                {
-                    neighbours.Add(currentDistance, c);
-                }
-            }
-            return neighbours.Values.ToList();
+
+            return (_cities
+                .Where(c => location.Distance(c.Location) < distance)
+                .OrderBy(d => location.Distance(d.Location)).ToList<City>());
+
+            //var neighbours = new SortedDictionary<double, City>();
+            //foreach (var c in _cities)
+            //{
+            //    var currentDistance = location.Distance(c.Location);
+            //    if (currentDistance <= distance)
+            //    {
+            //        neighbours.Add(currentDistance, c);
+            //    }
+            //}
+            //return neighbours.Values.ToList();
         }
 
         /// <summary>

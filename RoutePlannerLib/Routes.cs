@@ -220,6 +220,11 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             citiesOnRoute.Reverse();
             return citiesOnRoute;
         }
+
+        public City[] FindCities(TransportModes transportModes)
+        {
+            throw new NotImplementedException();
+        }
     }
 
     public class RouteRequestEventArgs : EventArgs
