@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
@@ -31,6 +32,12 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             get { return toCity; }
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="fromCity">Links departing city</param>
+        /// <param name="toCity">Links arriving city</param>
+        /// <param name="distance">distance between cities</param>
         public Link(City fromCity, City toCity, double distance)
         {
             this.fromCity = fromCity;
@@ -38,6 +45,13 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             this.distance = distance;
         }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="fromCity">Links departing city</param>
+        /// <param name="toCity">Links arriving city</param>
+        /// <param name="distance">Distance between cities</param>
+        /// <param name="transportMode">How link is served</param>
         public Link(City fromCity, City toCity, double distance, TransportModes transportMode)
             : this(fromCity, toCity, distance)
         {
@@ -67,21 +81,26 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns>true if both link-cities are in the list</returns>
         internal bool IsIncludedIn(List<City> cities)
         {
-            var foundFrom = false;
-            var foundTo = false;
-            foreach (var c in cities)
-            {
-                if (!foundFrom && c.Name == FromCity.Name)
-                    foundFrom = true;
+            //var foundFrom = false;
+            //var foundTo = false;
+            //foreach (var c in cities)
+            //{
+            //    if (!foundFrom && c.Name == FromCity.Name)
+            //        foundFrom = true;
 
-                if (!foundTo && c.Name == ToCity.Name)
-                    foundTo = true;
+            //    if (!foundTo && c.Name == ToCity.Name)
+            //        foundTo = true;
 
-                if (foundTo && foundFrom)
-                    return true;
-            }
+            //    if (foundTo && foundFrom)
+            //        return true;
+            //}
+            
+            //return false;
+            
+            var contains = cities.Where(c => c.Name == FromCity.Name || c.Name == ToCity.Name).Count() > 0;
+            return contains;
 
-            return false;
+           
         }
 
     }

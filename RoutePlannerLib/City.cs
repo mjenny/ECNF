@@ -13,7 +13,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public City(){}
 
         /// <summary>
-        /// 
+        /// Constructor
         /// </summary>
         /// <param name="name">name of the city</param>
         /// <param name="country">Country of the city</param>

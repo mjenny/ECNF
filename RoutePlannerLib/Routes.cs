@@ -224,8 +224,6 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public City[] FindCities(TransportModes transportModes)
         {
-            //Distinct
-
             var links = _routes.Where(p => p.TransportMode == transportModes).ToList();
             var fromCities = links.Select(c => c.FromCity).Distinct().ToList();
             var toCities = links.Select(d => d.ToCity).Distinct().ToList();

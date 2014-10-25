@@ -35,12 +35,6 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                         readCounter++;
                     
                     });
-
-                    //foreach (var cs in tr.GetSplittedLines('\t'))
-                    //{
-                    //    _cities.Add(new City(cs[0].Trim(), cs[1].Trim(), int.Parse(cs[2]), double.Parse(cs[3], CultureInfo.InvariantCulture), Double.Parse(cs[4], CultureInfo.InvariantCulture)));
-                    //    ++readCounter;
-                    //}
                 }
                 return readCounter;
             }
@@ -61,21 +55,9 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public List<City> FindNeighbours(WayPoint location, double distance)
         {
-
             return (_cities
                 .Where(c => location.Distance(c.Location) < distance)
                 .OrderBy(d => location.Distance(d.Location)).ToList<City>());
-
-            //var neighbours = new SortedDictionary<double, City>();
-            //foreach (var c in _cities)
-            //{
-            //    var currentDistance = location.Distance(c.Location);
-            //    if (currentDistance <= distance)
-            //    {
-            //        neighbours.Add(currentDistance, c);
-            //    }
-            //}
-            //return neighbours.Values.ToList();
         }
 
         /// <summary>
