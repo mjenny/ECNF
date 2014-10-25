@@ -74,34 +74,5 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             return (int)(1000 * (distance - other.distance));
         }
 
-        /// <summary>
-        /// checks if both cities of the link are included in the passed city list
-        /// </summary>
-        /// <param name="cities">list of city objects</param>
-        /// <returns>true if both link-cities are in the list</returns>
-        internal bool IsIncludedIn(List<City> cities)
-        {
-            //var foundFrom = false;
-            //var foundTo = false;
-            //foreach (var c in cities)
-            //{
-            //    if (!foundFrom && c.Name == FromCity.Name)
-            //        foundFrom = true;
-
-            //    if (!foundTo && c.Name == ToCity.Name)
-            //        foundTo = true;
-
-            //    if (foundTo && foundFrom)
-            //        return true;
-            //}
-            
-            //return false;
-            
-            var contains = cities.Where(c => c.Name == FromCity.Name || c.Name == ToCity.Name).Count() > 0;
-            return contains;
-
-           
-        }
-
     }
 }
