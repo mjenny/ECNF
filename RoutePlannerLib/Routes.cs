@@ -123,6 +123,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             var q = new List<City>(); // the set of all nodes (cities) in Graph ;
             dist = new Dictionary<City, double>();
             previous = new Dictionary<City, City>();
+
             foreach (var v in cities)
             {
                 dist[v] = double.MaxValue;

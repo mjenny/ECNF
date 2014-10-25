@@ -9,7 +9,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
     public class RoutesFactory {
         /// <summary>
-        /// 
+        /// Default Creator
         /// </summary>
         /// <param name="cities"></param>
         /// <returns></returns>
@@ -19,7 +19,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         }
 
         /// <summary>
-        /// 
+        /// Specific Creator with defined algorithm
         /// </summary>
         /// <param name="cities"></param>
         /// <param name="algorithmClassName"></param>

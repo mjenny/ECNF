@@ -18,6 +18,12 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         //Default Constructor for serialization
         public WayPoint() { }
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="_name"></param>
+        /// <param name="_latitude"></param>
+        /// <param name="_longitude"></param>
         public WayPoint(string _name, double _latitude, double _longitude)
         {
             Name = _name;
@@ -25,6 +31,11 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             Longitude = _longitude;
         }
 
+        /// <summary>
+        /// Calculate distance between this and the parameter waypoint
+        /// </summary>
+        /// <param name="target">waypoint to calculate the distance to</param>
+        /// <returns>distance</returns>
         public double Distance(WayPoint target) {
 
             double radianToDegree = (Math.PI / 180);
