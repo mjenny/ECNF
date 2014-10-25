@@ -1,6 +1,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Collections.Generic;
 using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
 
@@ -11,7 +12,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
     /// </summary>
     public class Routes : IRoutes
     {
-        List<Link> routes = new List<Link>();
+        List<Link> _routes = new List<Link>();
         Cities cities;
 
         public delegate void RouteRequestHandler(object sender, RouteRequestEventArgs e);
@@ -19,7 +20,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public int Count
         {
-            get { return routes.Count; }
+            get { return _routes.Count; }
         }
 
         /// <summary>
@@ -50,7 +51,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                     // only add links, where the cities are found 
                     if ((city1 != null) && (city2 != null))
                     {
-                        routes.Add(new Link(city1, city2, city1.Location.Distance(city2.Location),
+                        _routes.Add(new Link(city1, city2, city1.Location.Distance(city2.Location),
                                                    TransportModes.Rail));
                         count++;
                     }
@@ -76,7 +77,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public Link FindLink(City c1, City c2, TransportModes mode)
         {
-            return routes.Find(delegate(Link lnk)
+            return _routes.Find(delegate(Link lnk)
             {
                 return (lnk.TransportMode == mode && ((lnk.FromCity == c1 && lnk.ToCity == c2) || (lnk.FromCity == c2 && lnk.ToCity == c1)));
             });
@@ -99,7 +100,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             if (RouteRequestEvent != null)
                 RouteRequestEvent(this, new RouteRequestEventArgs(new City(fromCity, "", 0, 0.0, 0.0), new City(toCity, "", 0, 0.0, 0.0), mode));
             var citiesBetween = FindCitiesBetween(fromCity, toCity);
-            if (citiesBetween == null || citiesBetween.Count < 1 || routes == null || routes.Count < 1)
+            if (citiesBetween == null || citiesBetween.Count < 1 || _routes == null || _routes.Count < 1)
                 return null;
 
             var source = citiesBetween[0];
@@ -194,7 +195,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         private List<City> FindNeighbours(City city, TransportModes mode)
         {
             var neighbors = new List<City>();
-            foreach (var r in routes)
+            foreach (var r in _routes)
                 if (mode.Equals(r.TransportMode))
                 {
                     if (city.Equals(r.FromCity))
@@ -223,7 +224,13 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         public City[] FindCities(TransportModes transportModes)
         {
-            throw new NotImplementedException();
+            //Distinct
+
+            var links = _routes.Where(p => p.TransportMode == transportModes).ToList();
+            var fromCities = links.Select(c => c.FromCity).Distinct().ToList();
+            var toCities = links.Select(d => d.ToCity).Distinct().ToList();
+            fromCities.AddRange(toCities);
+            return fromCities.Distinct().ToArray();
         }
     }
 
