@@ -13,7 +13,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
     public class Routes : IRoutes
     {
         List<Link> _routes = new List<Link>();
-        Cities cities;
+        Cities _cities;
 
         public delegate void RouteRequestHandler(object sender, RouteRequestEventArgs e);
         public event RouteRequestHandler RouteRequestEvent;
@@ -29,7 +29,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <param name="cities"></param>
         public Routes(Cities cities)
         {
-            this.cities = cities;
+            this._cities = cities;
         }
 
         /// <summary>
@@ -43,19 +43,16 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             var count = 0;
             using (TextReader reader = new StreamReader(filename))
             {
-                foreach (var item in reader.GetSplittedLines('\t'))
+                reader.GetSplittedLines('\t').ToList().ForEach(s =>
                 {
-                    City city1 = cities.FindCity(item[0]);
-                    City city2 = cities.FindCity(item[1]);
-
-                    // only add links, where the cities are found 
-                    if ((city1 != null) && (city2 != null))
+                    City c1 = _cities.FindCity(s[0]);
+                    City c2 = _cities.FindCity(s[1]);
+                    if (c1 != null && c2 != null)
                     {
-                        _routes.Add(new Link(city1, city2, city1.Location.Distance(city2.Location),
-                                                   TransportModes.Rail));
+                        _routes.Add(new Link(c1, c2, c1.Location.Distance(c2.Location), TransportModes.Rail));
                         count++;
                     }
-                }
+                });
             }
 
             return count;
@@ -70,9 +67,9 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public List<City> FindCitiesBetween(string fromCity, string toCity)
         {
-            var fc = cities.FindCity(fromCity);
-            var tc = cities.FindCity(toCity);
-            return cities.FindCitiesBetween(fc, tc);
+            var fc = _cities.FindCity(fromCity);
+            var tc = _cities.FindCity(toCity);
+            return _cities.FindCitiesBetween(fc, tc);
         }
 
         public Link FindLink(City c1, City c2, TransportModes mode)
