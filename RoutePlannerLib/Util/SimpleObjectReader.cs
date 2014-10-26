@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
 {
@@ -74,7 +75,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
                                 else if (pi.PropertyType.Name == "Double")
                                 {
                                     var value = line.Substring(index + 1, line.Length - index - 1);
-                                    pi.SetValue(retVal, Double.Parse(value));
+                                    pi.SetValue(retVal, Double.Parse(value, CultureInfo.InvariantCulture));
                                 }
                                 
                             }
@@ -136,7 +137,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
                                 else if (pi.PropertyType.Name == "Double")
                                 {
                                     var value = line.Substring(index + 1, line.Length - index - 1);
-                                    pi.SetValue(no, Double.Parse(value));
+                                    pi.SetValue(no, Double.Parse(value, CultureInfo.InvariantCulture));
                                 }
 
                             }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Globalization;
 using System.Reflection;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
@@ -34,12 +35,15 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
                 {
                     stream.WriteLine("{0}=\"{1}\"", item.Name, item.GetValue(obj));
                 }
-                else if ((item.PropertyType == typeof(System.Double)) ||
-                    (item.PropertyType == typeof(System.Int16)) ||
+                else if ((item.PropertyType == typeof(System.Int16)) ||
                     (item.PropertyType == typeof(System.Int32)))
                 {
                     stream.WriteLine("{0}={1}", item.Name, item.GetValue(obj));
        
+                }
+                else if ((item.PropertyType == typeof(System.Double)))
+                {
+                    stream.WriteLine("{0}={1}", item.Name, Convert.ToString(item.GetValue(obj), CultureInfo.InvariantCulture));
                 }
                 else if (item.PropertyType.BaseType == typeof(System.Object))
                 {
