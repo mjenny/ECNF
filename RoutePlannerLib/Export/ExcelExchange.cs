@@ -20,11 +20,14 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Export
             excelWorkSheet.Cells[1, 1] = "From";
             excelWorkSheet.Cells[1, 2] = "To";
             excelWorkSheet.Cells[1, 3] = "Distance";
-            excelWorkSheet.Cells[1, 3] = "Transport Mode";
-            for (int i = 1; i < 5; i++)
-            {
-                excelWorkSheet.Cells[1, i].Font.Size = 14;
-            }
+            excelWorkSheet.Cells[1, 4] = "Transport Mode";
+
+            Range _range;
+            _range = excelWorkSheet.get_Range("A1", "D1");
+            _range.Font.Size = 14;
+            Borders borders = _range.Borders;
+            borders.LineStyle = XlLineStyle.xlContinuous;
+            borders.Weight = 2d;
 
             int j = 2;
             foreach (var l in links)
