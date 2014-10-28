@@ -25,6 +25,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Export
             Range _range;
             _range = excelWorkSheet.get_Range("A1", "D1");
             _range.Font.Size = 14;
+            _range.Font.Bold = true;
             Borders borders = _range.Borders;
             borders.LineStyle = XlLineStyle.xlContinuous;
             borders.Weight = 2d;
@@ -41,7 +42,6 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Export
             excelWorkBook.SaveAs(fileName);
             excelWorkBook.Close();
             return "Ok";
-
         }
     }
 }
