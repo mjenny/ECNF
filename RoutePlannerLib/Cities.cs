@@ -4,11 +4,15 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
+using System.Diagnostics;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
     public class Cities
     {
+
+        private static readonly TraceSource _logger = new TraceSource("Cities");
+
         readonly List<City> _cities = new List<City>();
         public int Count { get { return _cities.Count; } }
 
@@ -20,6 +24,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         /// <returns></returns>
         public int ReadCities(string filename)
         {
+            _logger.TraceEvent(TraceEventType.Information, 1, "ReadCities started");
             var readCounter = 0;
             try
             {
@@ -43,6 +48,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                 Console.WriteLine("The file \"" + filename + "\" could not be read!");
                 Console.WriteLine(e.Message);
                 return -1;
+            }
+            finally
+            {
+                _logger.TraceEvent(TraceEventType.Information, 1, "ReadCities ended");
             }
         }
 
