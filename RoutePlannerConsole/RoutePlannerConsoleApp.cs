@@ -60,6 +60,8 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);
             routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);
 
+            routes.ReadRoutes("data\\linksTestDataLab3.txt");
+
             Console.WriteLine();
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();

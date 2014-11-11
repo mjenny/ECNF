@@ -47,6 +47,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             {
                 Console.WriteLine("The file \"" + filename + "\" could not be read!");
                 Console.WriteLine(e.Message);
+                _logger.TraceEvent(TraceEventType.Critical, 1, e.StackTrace);
                 return -1;
             }
             finally
