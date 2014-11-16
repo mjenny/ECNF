@@ -28,7 +28,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerTest
 
             var excel = new ExcelExchange();
 
-
+            var statusMessage = excel.WriteToFile(excelFileName, bern, zuerich, links);
             excel.WriteToFile(excelFileName, bern, zuerich, links);
 
             Assert.IsTrue(File.Exists(excelFileName), excelFileName + " / " + statusMessage);
