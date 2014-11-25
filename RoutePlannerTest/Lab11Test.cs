@@ -134,9 +134,8 @@ namespace RoutePlannerTest
             long floydWarshallTime = FindRoutes(routes);
 
             // the sequentiel floydWarshal should be slower
-            //Assert.IsTrue(floydWarshallTime > floydWarshallParallelTime, "FloydWarshal parallel should be faster than sequential");
-            Assert.IsTrue(true);
-
+            Assert.IsTrue(floydWarshallTime > floydWarshallParallelTime, "FloydWarshal parallel should be faster than sequential");
+ 
         }
 
         private long FindRoutes(Routes routes)

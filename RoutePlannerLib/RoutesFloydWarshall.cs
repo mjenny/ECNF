@@ -36,9 +36,17 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                 return null;
 			Stopwatch stopWatch = new Stopwatch();
 			stopWatch.Start();
-			long ts0=stopWatch.ElapsedMilliseconds;
+			
+            long ts0=stopWatch.ElapsedMilliseconds;
 
-            Setup(cities, links);
+            if (ExecuteParallel)
+            {
+                SetupParallel(cities, links);
+            }
+            else
+            {
+                Setup(cities, links);
+            }
 
             City source = FindCity( fromCity, cities );
             City target = FindCity(toCity, cities);
@@ -126,7 +134,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 
         }
 
-      private void Setup(List<City> cities, List<Link> links) {
+        private void Setup(List<City> cities, List<Link> links) {
 	        
 	        D = InitializeWeight(cities, links);
 	        P = new City[cities.Count, cities.Count];
@@ -166,6 +174,31 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 	        }
 	        return weight;
 	    }
+
+        private double[,] InitializeWeightParallel(List<City> cities, List<Link> links)
+        {
+
+            double[,] weight = new double[cities.Count, cities.Count];
+            // initialize with MaxValue:
+            Parallel.For(0, cities.Count, i =>
+            {
+                Parallel.For(0, cities.Count, j =>
+                {
+                    weight[i, j] = Double.MaxValue;
+                });
+            });
+
+
+            Parallel.ForEach(links, l =>
+            {
+                weight[l.FromCity.Index, l.ToCity.Index] = l.Distance;
+                weight[l.ToCity.Index, l.FromCity.Index] = l.Distance;
+
+            });
+
+            return weight;
+        }
+
 
     }
 }
