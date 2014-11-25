@@ -33,12 +33,12 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
             {
                 if ((item.PropertyType == typeof(System.String)))
                 {
-                    if (item.Name == "Index") continue;
                     stream.WriteLine("{0}=\"{1}\"", item.Name, item.GetValue(obj));
                 }
                 else if ((item.PropertyType == typeof(System.Int16)) ||
                     (item.PropertyType == typeof(System.Int32)))
                 {
+                    if (item.Name == "Index") continue;
                     stream.WriteLine("{0}={1}", item.Name, item.GetValue(obj));
        
                 }

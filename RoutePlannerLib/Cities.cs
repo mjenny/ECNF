@@ -115,6 +115,10 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
                         && c.Location.Longitude > minLon && c.Location.Longitude < maxLon));
 
             foundCities.Add(to);
+
+            for (int i = 0; i < foundCities.Count; i++)
+                foundCities[i].Index = i;
+
             return foundCities;
         }
         #endregion
