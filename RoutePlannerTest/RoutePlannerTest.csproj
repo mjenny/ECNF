@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Lab06Test.cs" />
     <Compile Include="Lab07Test.cs" />
+    <Compile Include="Lab11Test.cs" />
     <Compile Include="Lab2Test.cs" />
     <Compile Include="Lab3Test.cs" />
     <Compile Include="Lab4Test.cs" />
@@ -61,6 +62,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="data\citiesTestDataLab11.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\citiesTestDataLab2.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -68,6 +72,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\citiesTestDataLab4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\linksTestDataLab11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="data\linksTestDataLab3.txt">

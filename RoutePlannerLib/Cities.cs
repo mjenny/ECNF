@@ -118,5 +118,16 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             return foundCities;
         }
         #endregion
+    
+        private List<City> InitIndexForAlgorithm(List<City> foundCities)
+        {
+            for(int index = 0; index < foundCities.Count; index++)
+            {
+                foundCities[index].Index = index;
+            }
+            return foundCities;
+        }
+
+    
     }
 }

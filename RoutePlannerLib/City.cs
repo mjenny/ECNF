@@ -1,5 +1,6 @@
 ﻿
 
+using System.Xml.Serialization;
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
 {
     public class City
@@ -8,6 +9,9 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public string Country { get; private set; }
         public int Population { get; private set; }
         public WayPoint Location { get; private set; }
+
+        [XmlIgnore]
+        public int Index { get; set; }
 
         //Default Constructor for serialization
         public City(){}
