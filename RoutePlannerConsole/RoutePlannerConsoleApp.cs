@@ -55,7 +55,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
             citiesLab3.ReadCities("data\\citiesTestDataLab3.txt");
             var reqWatcher = new RouteRequestWatcher();
 
-            var routes = new Routes(citiesLab3);
+            var routes = new RoutesDijkstra(citiesLab3);
             routes.RouteRequestEvent += reqWatcher.LogRouteRequests;
             routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);
             routes.FindShortestRouteBetween("Bern", "Zürich", TransportModes.Bus);

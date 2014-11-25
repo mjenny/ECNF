@@ -74,7 +74,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
             return (int)(1000 * (distance - other.distance));
         }
 
-        internal bool IsIncluded(List<City> cities)
+        internal bool IsIncludedIn(List<City> cities)
         {
             var foundFrom = false;
             var foundTo = false;

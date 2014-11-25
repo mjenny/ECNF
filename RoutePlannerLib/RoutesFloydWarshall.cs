@@ -66,7 +66,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         private List<Link> FindAllLinks(List<City> cities, TransportModes mode)
         {
             List<Link> links= new List<Link>();
-            foreach (Link r in routes)
+            foreach (Link r in _routes)
             {
                 if( r.IsIncludedIn( cities ) )
                 {
