@@ -20,7 +20,8 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
 
         public void Next(City c)
         {
-            WriteType(c.GetType(), c);
+            if (c.Name != "Index")
+                WriteType(c.GetType(), c);
         }
 
         private void WriteType(Type type, Object obj)
