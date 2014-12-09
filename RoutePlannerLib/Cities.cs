@@ -25,23 +25,21 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         public int ReadCities(string filename)
         {
             _logger.TraceEvent(TraceEventType.Information, 1, "ReadCities started");
-            var readCounter = 0;
+            int oldCount = _cities.Count;
             try
             {
+               
                 using (TextReader tr = new StreamReader(filename))
                 {
-
-                    tr.GetSplittedLines('\t').ToList().ForEach(c => {
-                        _cities.Add(new City(c[0].Trim(),
+                    _cities.AddRange(from c in tr.GetSplittedLines('\t')
+                                         select new City(c[0].Trim(),
                                              c[1].Trim(),
                                              int.Parse(c[2]),
                                              double.Parse(c[3], CultureInfo.InvariantCulture),
-                                             Double.Parse(c[4], CultureInfo.InvariantCulture)));
-                        readCounter++;
-                    
-                    });
+                                             double.Parse(c[4], CultureInfo.InvariantCulture)));
+                        
                 }
-                return readCounter;
+                return _cities.Count - oldCount;
             }
             catch (Exception e)
             {
