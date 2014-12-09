@@ -65,7 +65,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
         {
             return (_cities
                 .Where(c => location.Distance(c.Location) < distance)
-                .OrderBy(d => location.Distance(d.Location)).ToList<City>());
+                .OrderBy(d => location.Distance(d.Location)).ToList());
         }
 
         /// <summary>
