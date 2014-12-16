@@ -1,7 +1,7 @@
 ﻿
 
 using System.Xml.Serialization;
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW
 {
     public class City
     {

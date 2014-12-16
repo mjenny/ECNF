@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW;
 
 namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerConsole
 {

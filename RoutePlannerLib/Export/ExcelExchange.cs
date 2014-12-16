@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Office.Interop.Excel;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Export
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Export
 {
     public class ExcelExchange
     {

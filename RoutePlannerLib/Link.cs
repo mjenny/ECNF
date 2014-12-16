@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW
 {
     public enum TransportModes { Ship, Rail, Flight, Car, Bus, Tram };
 

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Util
 {
     public static class TextReaderExtension
     {

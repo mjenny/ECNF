@@ -5,8 +5,6 @@ VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePlannerConsole", "RoutePlannerConsole\RoutePlannerConsole.csproj", "{3E89E600-352E-4B08-9E5C-F75EDC0DECE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePlannerLib", "RoutePlannerLib\RoutePlannerLib.csproj", "{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutePlannerTest", "RoutePlannerTest\RoutePlannerTest.csproj", "{433C1110-B511-42A2-AC1E-7B31B754760E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{705858AC-4F0D-4325-9AC0-67DF37D7061A}"
@@ -24,10 +22,6 @@ Global
 		{3E89E600-352E-4B08-9E5C-F75EDC0DECE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E89E600-352E-4B08-9E5C-F75EDC0DECE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E89E600-352E-4B08-9E5C-F75EDC0DECE5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{433C1110-B511-42A2-AC1E-7B31B754760E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{433C1110-B511-42A2-AC1E-7B31B754760E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{433C1110-B511-42A2-AC1E-7B31B754760E}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Dynamic
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Dynamic
 {
     public class World : DynamicObject
     {

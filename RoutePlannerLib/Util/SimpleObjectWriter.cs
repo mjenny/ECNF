@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Reflection;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Util
 {
     public class SimpleObjectWriter
     {

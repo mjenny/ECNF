@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Util
 {
     public class SimpleObjectReader
     {
@@ -164,7 +164,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util
 
         private Object CreatObject(string line)
         {
-            Assembly ass = Assembly.Load("RoutePlannerLib");
+            Assembly ass = Assembly.Load("RoutePlannerLib_JW");
             object o = ass.CreateInstance(line);    
             return o;
         }

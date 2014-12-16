@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Export;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Dynamic;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Export;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Dynamic;
 using System.IO;
 
 

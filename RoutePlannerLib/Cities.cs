@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Util;
 using System.Diagnostics;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW
 {
     public class Cities
     {

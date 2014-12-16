@@ -7,8 +7,8 @@
     <ProjectGuid>{B275FB32-77CD-4229-8F3A-9C63EC1C84F9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fhnw.Ecnf.RoutePlanner.RoutePlannerLib</RootNamespace>
-    <AssemblyName>RoutePlannerLib</AssemblyName>
+    <RootNamespace>Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW</RootNamespace>
+    <AssemblyName>RoutePlannerLib_JW</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

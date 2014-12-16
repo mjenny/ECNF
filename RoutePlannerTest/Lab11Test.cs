@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW;
 
 namespace RoutePlannerTest
 {

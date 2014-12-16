@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Properties {
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -25,7 +25,7 @@ namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.RoutesDijkstra")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.RoutesDijkstra")]
         public string RouteAlgorithm {
             get {
                 return ((string)(this["RouteAlgorithm"]));

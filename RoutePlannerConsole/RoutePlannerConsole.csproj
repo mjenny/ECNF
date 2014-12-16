@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RoutePlannerLib_JW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RoutePlannerLib_JW.1.0.0.0\lib\net45\RoutePlannerLib_JW.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,12 +50,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RoutePlannerLib\RoutePlannerLib.csproj">
-      <Project>{b275fb32-77cd-4229-8f3a-9c63ec1c84f9}</Project>
-      <Name>RoutePlannerLib</Name>
-    </ProjectReference>
+    <Content Include="data\citiesTestDataLab2.txt" />
+    <Content Include="data\citiesTestDataLab3.txt" />
+    <Content Include="data\citiesTestDataLab4.txt" />
+    <Content Include="data\linksTestDataLab3.txt" />
+    <Content Include="data\linksTestDataLab4.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

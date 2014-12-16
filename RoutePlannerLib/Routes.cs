@@ -3,10 +3,10 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections.Generic;
-using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib.Util;
+using Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW.Util;
 using System.Diagnostics;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW
 {
     /// <summary>
     /// Manages a routes from a city to another city.

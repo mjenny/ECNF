@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 
-namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib
+namespace Fhnw.Ecnf.RoutePlanner.RoutePlannerLib_JW
 {
     public class RoutesFactory {
         /// <summary>
