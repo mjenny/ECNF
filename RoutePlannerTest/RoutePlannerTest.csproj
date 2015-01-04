@@ -36,9 +36,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="RoutePlannerLib_JW, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="RoutePlannerLib_JW, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\RoutePlannerLib_JW.1.0.0.0\lib\net45\RoutePlannerLib_JW.dll</HintPath>
+      <HintPath>..\packages\RoutePlannerLib_JW.1.0.1.0\lib\net45\RoutePlannerLib_JW.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
@@ -70,24 +70,15 @@
     <Content Include="data\citiesTestDataLab11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\citiesTestDataLab2.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\citiesTestDataLab3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\citiesTestDataLab4.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="data\citiesTestDataLab2.txt" />
+    <Content Include="data\citiesTestDataLab3.txt" />
+    <Content Include="data\citiesTestDataLab4.txt" />
     <Content Include="data\linksTestDataLab11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\linksTestDataLab3.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="data\linksTestDataLab4.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <Content Include="data\linksTestDataLab3.txt" />
+    <Content Include="data\linksTestDataLab4.txt" />
+    <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

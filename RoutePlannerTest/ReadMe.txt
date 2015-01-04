@@ -1,0 +1,1 @@
+﻿Dies ist das ReadMe File zur RoutePlannerLib von Manuel Jenny und Christian Weber
