@@ -70,14 +70,24 @@
     <Content Include="data\citiesTestDataLab11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\citiesTestDataLab2.txt" />
-    <Content Include="data\citiesTestDataLab3.txt" />
-    <Content Include="data\citiesTestDataLab4.txt" />
+    <Content Include="data\citiesTestDataLab2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\citiesTestDataLab3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\citiesTestDataLab4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="data\linksTestDataLab11.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="data\linksTestDataLab3.txt" />
-    <Content Include="data\linksTestDataLab4.txt" />
+    <Content Include="data\linksTestDataLab3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="data\linksTestDataLab4.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
